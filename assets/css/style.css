@@ -1,19 +1,95 @@
-/*-----------------------------------*\
-  #style.css
-\*-----------------------------------*/
+/* added css style start*/
+
+.empty-10{
+  width: auto;
+  height: 10px;
+}
+.empty-20{
+  width: auto;
+  height: 20px;
+}
+.empty-30{
+  width: auto;
+  height: 30px;
+}
+.empty-40{
+  width: auto;
+  height: 40px;
+}
+.empty-50{
+  width: auto;
+  height: 50px;
+}
 
 
-/**
- * copyright 2022 @codewithsadee
- */
 
 
 
 
 
-/*-----------------------------------*\
-  #CUSTOM PROPERTY
-\*-----------------------------------*/
+
+.slider {
+    overflow: hidden;
+    width: 100%;
+    white-space: nowrap;
+  }
+
+  .slider-track-1 {
+    display: flex;
+    gap: 60px;
+    width: max-content;
+    animation: scroll-left 30s linear infinite;
+ 
+  }
+  .slider-track-2 {
+    display: flex;
+    gap: 60px;
+    width: max-content;
+    animation: scroll-right 30s linear infinite;
+  }
+
+
+
+  .slide {
+   flex: 0 0 200px;
+    aspect-ratio: 16 / 9;
+     overflow: hidden;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  font-weight: 600;
+  color: #fff;
+  transition: transform 0.25s ease;
+  filter: grayscale(100%);
+  }
+
+.slide img {
+    width: 100%;
+  height: 100%;
+  object-fit: contain;
+ 
+}
+
+
+  .slide:hover{
+    transform: scale(1.2);
+      filter: grayscale(0%);
+  }
+
+
+@keyframes scroll-left {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+@keyframes scroll-right {
+  from { transform: translateX(-50%); }
+  to   { transform: translateX(0); }
+}
+
+/* added css style end*/
 
 :root {
 
@@ -722,39 +798,7 @@ main {
 }
 
 
-/**
- * #clients 
- */
 
-.clients { margin-bottom: 15px; }
-
-.clients-list {
-  display: flex;
-  justify-content: flex-start;
-  align-items: flex-start;
-  gap: 15px;
-  margin: 0 -15px;
-  padding: 25px;
-  padding-bottom: 25px;
-  overflow-x: auto;
-  scroll-behavior: smooth;
-  overscroll-behavior-inline: contain;
-  scroll-snap-type: inline mandatory;
-  scroll-padding-inline: 25px;
-}
-
-.clients-item {
-  min-width: 50%;
-  scroll-snap-align: start;
-}
-
-.clients-item img {
-  width: 100%;
-  filter: grayscale(1);
-  transition: var(--transition-1);
-}
-
-.clients-item img:hover { filter: grayscale(0); }
 
 
 
@@ -1025,95 +1069,6 @@ main {
   font-size: var(--fs-6);
   font-weight: var(--fw-300);
 }
-
-
-
-
-
-/*-----------------------------------*\
-  #BLOG
-\*-----------------------------------*/
-
-.blog-posts { margin-bottom: 10px; }
-
-.blog-posts-list {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 20px;
-}
-
-.blog-post-item > a {
-  position: relative;
-  background: var(--border-gradient-onyx);
-  height: 100%;
-  box-shadow: var(--shadow-4);
-  border-radius: 16px;
-  z-index: 1;
-}
-
-.blog-post-item > a::before {
-  content: "";
-  position: absolute;
-  inset: 1px;
-  border-radius: inherit;
-  background: var(--eerie-black-1);
-  z-index: -1;
-}
-
-.blog-banner-box {
-  width: 100%;
-  height: 200px;
-  border-radius: 12px;
-  overflow: hidden;
-}
-
-.blog-banner-box img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transition: var(--transition-1);
-}
-
-.blog-post-item > a:hover .blog-banner-box img { transform: scale(1.1); }
-
-.blog-content { padding: 15px; }
-
-.blog-meta {
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  gap: 7px;
-  margin-bottom: 10px;
-}
-
-.blog-meta :is(.blog-category, time) {
-  color: var(--light-gray-70);
-  font-size: var(--fs-6);
-  font-weight: var(--fw-300);
-}
-
-.blog-meta .dot {
-  background: var(--light-gray-70);
-  width: 4px;
-  height: 4px;
-  border-radius: 4px;
-}
-
-.blog-item-title {
-  margin-bottom: 10px;
-  line-height: 1.3;
-  transition: var(--transition-1);
-}
-
-.blog-post-item > a:hover .blog-item-title { color: var(--orange-yellow-crayola); }
-
-.blog-text {
-  color: var(--light-gray);
-  font-size: var(--fs-6);
-  font-weight: var(--fw-300);
-  line-height: 1.6;
-}
-
 
 
 
@@ -1736,7 +1691,7 @@ textarea.form-input::-webkit-resizer { display: none; }
 
   /* clients */
 
-  .clients-item { min-width: calc(25% - 38px); }
+  .clients-item { min-width: calc(5% - 38px); }
 
 
 
@@ -1803,7 +1758,7 @@ textarea.form-input::-webkit-resizer { display: none; }
    */
 
   main {
-    max-width: 1200px;
+    max-width: 1350px;
     margin-inline: auto;
     display: flex;
     justify-content: center;

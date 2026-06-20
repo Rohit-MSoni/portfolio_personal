@@ -1,6 +1,10 @@
 'use strict';
 
+// added js start
 
+
+
+// added js end
 
 // element toggle function
 const elementToggleFunc = function (elem) { elem.classList.toggle("active"); }
@@ -50,8 +54,8 @@ for (let i = 0; i < testimonialsItem.length; i++) {
 }
 
 // add click event to modal close button
-modalCloseBtn.addEventListener("click", testimonialsModalFunc);
-overlay.addEventListener("click", testimonialsModalFunc);
+// modalCloseBtn.addEventListener("click", testimonialsModalFunc);
+// overlay.addEventListener("click", testimonialsModalFunc);
 
 
 
