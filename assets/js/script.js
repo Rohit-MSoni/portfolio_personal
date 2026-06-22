@@ -167,3 +167,67 @@ for (let i = 0; i < navigationLinks.length; i++) {
 
 
 
+// ADD THIS BELOW YOUR EXISTING JS
+
+const indicator = document.createElement("div");
+indicator.classList.add("nav-indicator");
+document.querySelector(".navbar-list").appendChild(indicator);
+
+function moveIndicator(el) {
+  const rect = el.getBoundingClientRect();
+  const parentRect = el.parentElement.parentElement.getBoundingClientRect();
+
+  indicator.style.width = rect.width + "px";
+  indicator.style.left = (rect.left - parentRect.left) + "px";
+}
+
+// update inside your existing click
+for (let i = 0; i < navigationLinks.length; i++) {
+  navigationLinks[i].addEventListener("click", function () {
+
+    for (let j = 0; j < pages.length; j++) {
+      if (this.innerHTML.toLowerCase() === pages[j].dataset.page) {
+        pages[j].classList.add("active");
+        navigationLinks[i].classList.add("active");
+
+        moveIndicator(this); // ✅ ADD THIS
+
+        window.scrollTo(0, 0);
+      } else {
+        pages[j].classList.remove("active");
+        navigationLinks[j].classList.remove("active");
+      }
+    }
+
+  });
+}
+
+// INITIAL POSITION
+window.addEventListener("load", () => {
+  const active = document.querySelector(".navbar-link.active");
+  if (active) moveIndicator(active);
+});
+
+
+
+// SAVE ACTIVE TAB
+for (let i = 0; i < navigationLinks.length; i++) {
+  navigationLinks[i].addEventListener("click", function () {
+    const pageName = this.innerHTML.toLowerCase();
+    localStorage.setItem("activeTab", pageName);
+  });
+}
+
+// LOAD ACTIVE TAB ON REFRESH
+window.addEventListener("load", () => {
+  const savedTab = localStorage.getItem("activeTab");
+
+  if (savedTab) {
+    for (let i = 0; i < navigationLinks.length; i++) {
+      if (navigationLinks[i].innerHTML.toLowerCase() === savedTab) {
+        navigationLinks[i].click(); // trigger your existing logic
+        break;
+      }
+    }
+  }
+});
