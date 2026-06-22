@@ -57,7 +57,10 @@ for (let i = 0; i < testimonialsItem.length; i++) {
 // modalCloseBtn.addEventListener("click", testimonialsModalFunc);
 // overlay.addEventListener("click", testimonialsModalFunc);
 
-
+if (modalCloseBtn && overlay) {
+  modalCloseBtn.addEventListener("click", testimonialsModalFunc);
+  overlay.addEventListener("click", testimonialsModalFunc);
+}
 
 // custom select variables
 const select = document.querySelector("[data-select]");
@@ -161,3 +164,6 @@ for (let i = 0; i < navigationLinks.length; i++) {
 
   });
 }
+
+
+
